@@ -1,0 +1,48 @@
+(1) Create the expense claim table
+----------------------------------
+
+"CREATE TABLE expenseclaims (id INTEGER, employeeId INTEGER, dateOfClaim VARCHAR(255), approved TINYINT, paid TINYINT, PRIMARY KEY (id) )"
+           
+(2) Create the expense items table
+----------------------------------
+
+"CREATE TABLE expenseitems (id INTEGER, claimId INTEGER, expenseType VARCHAR(255), description VARCHAR(255), amount DOUBLE, PRIMARY KEY (id) )"
+
+(3) Get Employee List
+---------------------
+
+first get all employees 
+-----------------------
+
+SELECT * FROM employees
+
+next get claims for a specific employee id
+------------------------------------------
+
+"SELECT * FROM expenseclaims WHERE employeeId = " + employee.getId()
+
+finally get expense items for a specific claim
+----------------------------------------------
+
+"SELECT * FROM expenseitems WHERE claimId = " + claim.getId()
+
+(4) Find by Surname (this will find where part of the surname matches, eg "OWN" will find "BROWNLEY"
+----------------------------------------------------------------------------------------------------
+
+"SELECT * FROM employees WHERE surname like '%" + surname + "%'"
+
+(5) Find employee by id
+-----------------------
+
+"SELECT * FROM employees WHERE id = " + id 
+
+(6) Add expense claim
+---------------------
+
+a - insert a claim
+------------------
+"INSERT INTO expenseclaims (id, employeeId, dateOfClaim, approved, paid) VALUES (...)"
+
+b - insert an expense item
+--------------------------
+"INSERT INTO expenseitems (id, claimId, expenseType, description, amount) VALUES (...)"
